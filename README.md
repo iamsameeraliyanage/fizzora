@@ -122,3 +122,7 @@ limitations under the License.
 [prismic-sign-up]: https://prismic.io/dashboard/signup
 [nextjs]: https://nextjs.org/
 [live-demo]: https://nextjs-starter-prismic-minimal.vercel.app/
+
+## Tutorio; resources
+
+https://prismic.notion.site/Fizzi-3D-Website-Course-Resources-9f23c46433f04e749b92aafaeeeb8630
