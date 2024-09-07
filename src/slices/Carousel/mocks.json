@@ -1,0 +1,31 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Attention"
+						}
+					}
+				]
+			},
+			"price_copy": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sit aliquip sint eiusmod officia commodo pariatur ut elit laboris enim velit. Adipisicing aute do officia. Cillum culpa magna proident exercitation non est consequat veniam ut officia ipsum minim magna eiusmod dolor."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

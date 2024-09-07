@@ -8,7 +8,7 @@
 				"value": "family",
 				"type": "Text"
 			},
-			"flavour": {
+			"flavor": {
 				"__TYPE__": "FieldContent",
 				"value": "lemonLime",
 				"type": "Select"

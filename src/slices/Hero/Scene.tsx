@@ -1,7 +1,7 @@
 "use client";
 
 import FloatingCan from "@/components/FloatingCan";
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import { useRef } from "react";
 import { Group } from "three";
 
@@ -135,7 +135,7 @@ function Scene({}: Props) {
         floatSpeed={FLOAT_SPEED}
       />
       <FloatingCan ref={can5Ref} flavor="watermelon" floatSpeed={FLOAT_SPEED} />
-      <OrbitControls />
+      {/* <OrbitControls /> */}
 
       <Environment files={"/hdr/lobby.hdr"} environmentIntensity={1.5} />
     </group>
