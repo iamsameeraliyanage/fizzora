@@ -1,0 +1,99 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Tropical"
+						}
+					}
+				]
+			},
+			"subheading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Magna fugiat exercitation ullamco amet incididunt esse."
+						}
+					}
+				]
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Reprehenderit veniam laborum ipsum tempor esse labore eiusmod est dolor eu. Tempor excepteur culpa et nostrud velit est ullamco pariatur sint elit magna minim ad velit. Do ex do non officia magna nostrud dolore nostrud exercitation."
+						}
+					}
+				]
+			},
+			"buttontext": {
+				"__TYPE__": "FieldContent",
+				"value": "gently",
+				"type": "Text"
+			},
+			"buttonlink": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
+			},
+			"cansimage": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
+					"width": 12288,
+					"height": 16384
+				},
+				"url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
+				"width": 12288,
+				"height": 16384,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"secondheading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Select"
+						}
+					}
+				]
+			},
+			"secondbody": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Mollit consequat elit ex ex minim et nulla adipisicing consectetur commodo mollit. Ad commodo labore laboris cillum ex duis occaecat cillum exercitation amet occaecat tempor dolore."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
