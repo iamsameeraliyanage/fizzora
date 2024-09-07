@@ -10,6 +10,9 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { View } from "@react-three/drei";
 import Scene from "./Scene";
+import { Bubbles } from "@/components/Bubbles";
+import { useStore } from "@/hooks/useStore";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 /**
@@ -21,65 +24,77 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  * Component for "Hero" Slices.
  */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
-  useGSAP(() => {
-    const introTl = gsap.timeline();
+  const ready = useStore((state) => state.ready);
 
-    introTl
-      .set(".hero", {
-        opacity: 1,
-      })
-      .from(".hero-header-word", {
-        scale: 3,
-        opacity: 0,
-        ease: "power4.out",
-        delay: 0.3,
-        stagger: 0.75,
-      })
-      .from(".hero-subheading", {
-        opacity: 0,
-        y: 30,
-        delay: 0.3,
-      })
-      .from(".hero-body", {
-        opacity: 0,
-        y: 10,
-        delay: 0.3,
-      })
-      .from(".hero-button", {
-        opacity: 0,
-        y: 10,
-      });
+  const isDesktop = useMediaQuery("(min-width: 768px)", true);
 
-    const scrollTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".hero",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 1.5,
-        markers: true,
-      },
-    });
-    scrollTl
-      .fromTo(
-        "body",
-        { backgroundColor: "#fde047" },
-        { backgroundColor: "#d9f99d", overwrite: "auto" },
-        1,
-      )
-      .from(".text-side-heading .split-char", {
-        scale: 1.3,
-        y: 40,
-        rotate: -25,
-        opacity: 0,
-        stagger: 0.1,
-        ease: "back.out(3)",
-        duration: 0.5,
-      })
-      .from(".text-side-body", {
-        y: 20,
-        opacity: 0,
+  useGSAP(
+    () => {
+      if (isDesktop && !ready) {
+        return;
+      }
+      const introTl = gsap.timeline();
+
+      introTl
+        .set(".hero", {
+          opacity: 1,
+        })
+        .from(".hero-header-word", {
+          scale: 3,
+          opacity: 0,
+          ease: "power4.out",
+          delay: 0.3,
+          stagger: 0.75,
+        })
+        .from(".hero-subheading", {
+          opacity: 0,
+          y: 30,
+          delay: 0.3,
+        })
+        .from(".hero-body", {
+          opacity: 0,
+          y: 10,
+          delay: 0.3,
+        })
+        .from(".hero-button", {
+          opacity: 0,
+          y: 10,
+        });
+
+      const scrollTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1.5,
+          markers: true,
+        },
       });
-  }, []);
+      scrollTl
+        .fromTo(
+          "body",
+          { backgroundColor: "#fde047" },
+          { backgroundColor: "#d9f99d", overwrite: "auto" },
+          1
+        )
+        .from(".text-side-heading .split-char", {
+          scale: 1.3,
+          y: 40,
+          rotate: -25,
+          opacity: 0,
+          stagger: 0.1,
+          ease: "back.out(3)",
+          duration: 0.5,
+        })
+        .from(".text-side-body", {
+          y: 20,
+          opacity: 0,
+        });
+    },
+    {
+      dependencies: [ready, isDesktop],
+    }
+  );
 
   return (
     <Bounded
@@ -87,20 +102,24 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className="hero opacity-0"
     >
-      <View className="hero-scene pointer-events-none sticky top-0 z-50 -mt-[100vh] hidden h-screen w-screen md:block">
-        <Scene />
-      </View>
+      {isDesktop && (
+        <View className="hero-scene pointer-events-none sticky top-0 z-50 -mt-[100vh] hidden h-screen w-screen md:block">
+          <Scene />
+          <Bubbles count={300} speed={2} repeat />
+        </View>
+      )}
+
       <div className="grid">
         <div className="grid h-screen place-items-center">
           <div className="grid auto-rows-min place-items-center text-center">
-            <h1 className="hero-header text-7xl font-black uppercase leading-[0.8] text-orange-500 md:text-6xl lg:text-8xl">
+            <h1 className="hero-header text-6xl font-black uppercase leading-[0.8] text-orange-500 md:text-6xl lg:text-7xl">
               <TextSplitter
                 text={asText(slice.primary.heading)}
                 wordDisplayStyle="block"
                 className="hero-header-word"
               />
             </h1>
-            <div className="hero-subheading mt-12 text-5xl font-semibold text-sky-950 lg:text-6xl">
+            <div className="hero-subheading mt-12 text-4xl font-semibold text-sky-950 lg:text-5xl">
               <PrismicRichText field={slice.primary.subheading} />
             </div>
             <div className="hero-body text-2xl font-normal text-sky-950">

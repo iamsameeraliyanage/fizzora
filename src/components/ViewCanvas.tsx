@@ -4,10 +4,11 @@ import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
+// import { Perf } from "r3f-perf";
 
 const Loader = dynamic(
   () => import("@react-three/drei").then((mod) => mod.Loader),
-  { ssr: false },
+  { ssr: false }
 );
 
 type Props = {};
@@ -34,6 +35,7 @@ export default function ViewCanvas({}: Props) {
       >
         <Suspense fallback={null}>
           <View.Port />
+          {/* <Perf position={"top-left"} /> */}
         </Suspense>
       </Canvas>
       <Loader />
